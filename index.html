@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CASCATA, ESPECIFICIDADE E COMBINADORES</title>
+</head>
+<body>
+    <div>
+    <header>
+        <h1>Cascata, Especifidade e Combinadores</h1>
+    </header>
+
+    <main>
+        <h2>Cascata o que é:</h2>
+        <p>A regra da cascata no CSS é o que determina quais estilos serão aplicados a um elemento quando há múltiplas regras competindo entre si. É como um sistema de desempate que segue uma hierarquia bem definida.</p>
+        <h2>Especificidade:</h2>
+        <p>Especificidade é o sistema de pontuação que o CSS usa para decidir qual regra de estilo vence quando há várias competindo pelo mesmo elemento. Quanto mais “específico” o seletor, maior sua prioridade.</p>
+        <ul>    
+            <li>
+                Tag: div, p, h1. 0,0,0,1: força relativa: Baixa.
+            </li>
+            <li>
+                Classe: .menu, .btn. 0,0,1,0: força relativa: Média.
+            </li>
+            <li>
+                ID: #header, #nav. 0,1,0,0: força relativa: Alta.
+            </li>
+        </ul>
+        <p>Quanto maior a pontuação, mais forte o seletor. A pontuação é lida como: (inline, ID, classe, tag).</p>
+
+        <h2>Seletores:</h2>
+        <ul>
+            <li>Combinador de descendente: Seleciona qualquer h1 que esteja dentro de .primeiro, em qualquer nível de profundidade.</li>
+            <li>Combinador de filho direto: Seleciona apenas o h1 que é filho direto de .primeira.</li>
+            <li>Combinador de irmão adjacente: Seleciona o h1 que vem logo depois de outro h1, dentro de .primeira.</li>
+        </ul>
+        <p>Resumo: pega o h1 que é irmão adjacente (vem logo depois) de outro h1.</p>
+        <h2>Pseudo-Classes:</h2>
+        <p>Existem algumas Pseudo-Classes, como: first-child, last-child, nth-child, nth-of-type.</p>
+        <ul>
+            <li>:first-child: Seleciona o primeiro filho de um elemento pai, independente da tag.</li>
+            <li>:last-child: Seleciona o último filho de um elemento pai, também independente da tag.</li>
+            <li>:nth-child(n): Seleciona o n-ésimo filho do pai, independente da tag.</li>
+            <li>:nth-of-type(n): Seleciona o n-ésimo filho do tipo específico de elemento (ex.: o segundo <p> entre vários filhos).</li>
+        </ul>
+        <p>Existem algumas formulas que podemos usar no ":nth-child", como:</p>
+        <ul>
+            <li>:nth-child(odd) → filhos em posições ímpares.</li>
+            <li>:nth-child(even) → filhos em posições pares.</li>
+            <li>:nth-child(3n) → cada terceiro filho (3, 6, 9…).</li>
+        </ul>
+        <h2>Diferenças entre Display Inline e Display Block:</h2>
+        <p>O display: block possui as seguintes caracteristicas:</p>
+        <ul>
+            <li>Ocupa toda a largura disponível do elemento pai.</li>
+            <li>Sempre começa em uma nova linha.</li>
+            <li>Pode ter largura (width), altura (height), margem, padding, etc.</li>
+        </ul>
+        <p>Já o display: inline possui algumas coisas diferentes como:</p>
+        <ul>
+            <li>Ocupa apenas o espaço necessário para seu conteúdo.</li>
+            <li>Não quebra linha automaticamente.</li>
+            <li>Não aceita width, height, margin-top, margin-bottom (mas aceita padding lateral).</li>
+        </ul>
+        <p>Uma curiosidade é que existem propriedades que se aplicam no display: block que nao se aplicam ao display: inline como:</p>
+        <ul>
+            <li>width / height.</li>
+            <li>margin-top/bottom.</li>
+            <li>padding (todos).</li>
+            <li>float / clear.</li>
+        </ul>
+        <p>Existem também elementos são por padrão display inline e quais são display block, aqui estão alguns.</p>
+        <p>display: block: div, section, article , footer.</p>
+        <p>display: inline: span, strong, em, b, i, u.</p>
+        <h2>Propriedades:</h2>
+        <p>Todo elemento HTML é uma “caixa” composta por: margin, border, padding e o conteúdo. Vou explicar para você cada uma delas.</p>
+        <h3>Margin:</h3>
+        <p>Serve para criar espaço externo entre o elemento e os elementos ao redor. É possivel usar: margin-top, margin-right, margin-bottom, margin-leftmargin-inline-start, margin-inline-en(horizontal, respeita direção do texto)margin-block-start, margin-block-end (vertical, respeita escrita vertical ou horizontal).</p>
+        <h3>Padding:</h3>
+        <p>Serve para: criar espaço interno entre o conteúdo e a borda do elemento. É possivel usar: Pode usar: padding-top, padding-right, padding-bottom, padding-left, padding-inline-start, padding-inline-end, padding-block-start, padding-block-end.</p>
+        <h3>Border:</h3>
+        <p>Serve para: criar uma borda visível ao redor do elemento. É possivel usar: border-top, border-right, border-bottom, border-left, border-inline-start, border-inline-end, border-block-start, border-block-end. Cada lado pode ter: border-width, border-style, border-color</p>
+        <h3>Shorthand:</h3>
+        <p>Você pode usar 1 a 4 valores para margin, padding e border-width:</p>
+        <h3>Sufixos:</h3>
+        <ul>
+            <li>top</li>
+            <li>bottom</li>
+            <li>left</li>
+            <li>right</li>
+            <li>inline-start</li>
+            <li>inline-end</li>
+            <li>block-start</li>
+            <li>block-end</li>
+        </ul>
+        <h3>Box-Sizing</h3>
+        <p>Por padrão, o CSS usa o modelo de caixa content-box, onde:</p>
+        <ul>
+            <li>width e height se referem apenas ao conteúdo.</li>
+            <li>padding e border são adicionados por fora, aumentando o tamanho total da caixa.Com box-sizing: border-box, o comportamento muda:</li>
+            <li>width e height incluem padding e border.</li>
+            <li>O tamanho total da caixa não aumenta.</li>
+        </ul>
+    </main> 
+    </div>
+</body>
+</html>
